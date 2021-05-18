@@ -1,5 +1,7 @@
 package GUI;
 
+import Cell.Pixel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,7 +22,8 @@ public class FirstWindow {
             public void actionPerformed(ActionEvent e) {
                 if(DIODYButton.getBackground()!=Color.BLUE){
                     DIODYButton.setBackground(Color.BLUE);
-                    DIODYButton.setOpaque(true);}
+                    DIODYButton.setOpaque(true);
+                }
                 else{
                     DIODYButton.setBackground(null);
                 }
@@ -38,22 +41,21 @@ public class FirstWindow {
                 }
             }
         });
-        textField1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String LiczbaIteracji = textField1.getText();
-            }
-        });
+
         gENEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SecondWindow window2 = new SecondWindow();
+
+                String iterNum = textField1.getText();
+
+                SecondWindow window2 = new SecondWindow(iterNum);
                 JFrame frame2 = new JFrame("Animacja");
                 frame2.setContentPane(window2.getSecondWindowRoot());
                 frame2.setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
                 frame2.setPreferredSize(new Dimension(1024,576));
                 frame2.pack();
                 frame2.setVisible(true);
+
             }
         });
     }
@@ -61,6 +63,7 @@ public class FirstWindow {
     public Container getFirstWindowRoot(){
         return this.FirstWindowRoot;
     }
+
 
 
 }
