@@ -1,12 +1,10 @@
 package Cell;
 
 public class Pixel {
-    private int stan, x, y;
+    private int stan;
 
-    public Pixel(int stan, int x, int y) {
+    public Pixel(int stan) {
         this.stan = stan;
-        this.x = x;
-        this.y = y;
     }
 
     public int getStan() {return stan;}

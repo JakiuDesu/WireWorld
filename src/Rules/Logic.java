@@ -1,21 +1,36 @@
 package Rules;
 
+import Cell.Pixel;
+
 import java.io.FileNotFoundException;
 
 public class Logic {
 
     public static void run(String[] args) throws FileNotFoundException {
-        Board b = new Board(20, 20, args[0]);
-        char[] znaki = {'_', 'H', 'T', '#'};
-        for(int k=0; k<20;k++) {
-            for (int i = 0; i < 20; i++) {
-                for (int j = 0; j < 20; j++) {
-                    System.out.print(znaki[b.getPixel(i, j).getStan()]);
+        Board b = new Board( Integer.parseInt(args[1]), Integer.parseInt(args[2]), args[0]);
+        Pixel[][][] history = new Pixel[ Integer.parseInt(args[3]) + 1 ][ Integer.parseInt(args[1]) ][ Integer.parseInt(args[2]) ];
+        for(int i=0; i<Integer.parseInt(args[3])+1; i++) {
+            for(int j=0; j<Integer.parseInt(args[1]); j++) {
+                for(int k=0; k<Integer.parseInt(args[2]); k++) {
+                    history[i][j][k] = new Pixel(0);
                 }
-                System.out.println();
             }
+        }
+        int iter = 0;
+        char[] znaki = {'_', 'H', 'T', '#'};
+        for(int i = 0; i < history[0].length; i++) {
+            for(int j = 0; j < history[0][i].length; j++) {
+                history[0][i][j].setStan(b.getPixel(i,j).getStan());
+            }
+        }
+        for(int k = 0; k < Integer.parseInt(args[3]); k++) {
             b.update();
-            System.out.println();
+            iter++;
+            for(int i = 0; i < history[k+1].length; i++) {
+                for(int j = 0; j < history[k+1][i].length; j++) {
+                    history[k+1][i][j].setStan(b.getPixel(i,j).getStan());
+                }
+            }
         }
     }
 }

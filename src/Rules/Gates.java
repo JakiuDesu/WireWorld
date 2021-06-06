@@ -1,7 +1,5 @@
 package Rules;
 
-import Cell.Pixel;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
