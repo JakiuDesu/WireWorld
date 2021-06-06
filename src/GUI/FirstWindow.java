@@ -16,6 +16,7 @@ public class FirstWindow {
     private JButton ANDButton;
     private JButton ORButton;
     private JButton NOTButton;
+    private JButton CUSTOMButton;
 
 
     public FirstWindow() {
@@ -92,6 +93,17 @@ public class FirstWindow {
                     NOTButton.setOpaque(true);}
                 else{
                     NOTButton.setBackground(null);
+                }
+            }
+        });
+        CUSTOMButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(CUSTOMButton.getBackground()!=Color.white){
+                    CUSTOMButton.setBackground(Color.white);
+                    CUSTOMButton.setOpaque(true);}
+                else{
+                    CUSTOMButton.setBackground(null);
                 }
             }
         });
