@@ -1,5 +1,6 @@
 package GUI;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,11 +12,15 @@ public class SecondWindow {
     private JButton NASTĘPNAButton;
     private JPanel SecondWindowRoot;
     private JLabel numerIteracji;
+    private JPanel Animate;
     private int count = 1;
+    public int gateNum;
 
 
-    public SecondWindow(String iterNum) {
+    public SecondWindow(String iterNum, int gateNum) {
         int iter = Integer.parseInt(iterNum);
+        Animate.add(new Animation(gateNum));
+
         NASTĘPNAButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
