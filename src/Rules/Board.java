@@ -14,8 +14,8 @@ public class Board {
         history = new Pixel[y][x];
         for(int i = 0; i < y; i++) {
             for(int j = 0; j < x; j++) {
-                tab[i][j] = new Pixel(0, i, j);
-                history[i][j] = new Pixel(0, i, j);
+                tab[i][j] = new Pixel(0);
+                history[i][j] = new Pixel(0);
             }
         }
         Gates g = new Gates(path);
