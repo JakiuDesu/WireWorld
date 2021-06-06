@@ -13,6 +13,10 @@ public class FirstWindow {
     private JTextField textField1;
     private JButton gENEButton;
     private JPanel FirstWindowRoot;
+    private JButton ANDButton;
+    private JButton ORButton;
+    private JButton NOTButton;
+    private JButton CUSTOMButton;
 
 
     public FirstWindow() {
@@ -20,8 +24,8 @@ public class FirstWindow {
         DIODYButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(DIODYButton.getBackground()!=Color.BLUE){
-                    DIODYButton.setBackground(Color.BLUE);
+                if(DIODYButton.getBackground()!=Color.white){
+                    DIODYButton.setBackground(Color.white);
                     DIODYButton.setOpaque(true);
                 }
                 else{
@@ -30,11 +34,12 @@ public class FirstWindow {
             }
         });
 
+
         BRAMKAXORButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(BRAMKAXORButton.getBackground()!=Color.BLUE){
-                    BRAMKAXORButton.setBackground(Color.BLUE);
+                if(BRAMKAXORButton.getBackground()!=Color.white){
+                    BRAMKAXORButton.setBackground(Color.white);
                     BRAMKAXORButton.setOpaque(true);}
                 else{
                     BRAMKAXORButton.setBackground(null);
@@ -56,6 +61,50 @@ public class FirstWindow {
                 frame2.pack();
                 frame2.setVisible(true);
 
+            }
+        });
+        ANDButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(ANDButton.getBackground()!=Color.white){
+                    ANDButton.setBackground(Color.white);
+                    ANDButton.setOpaque(true);}
+                else{
+                    ANDButton.setBackground(null);
+                }
+            }
+        });
+        ORButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(ORButton.getBackground()!=Color.white){
+                    ORButton.setBackground(Color.white);
+                    ORButton.setOpaque(true);}
+                else{
+                    ORButton.setBackground(null);
+                }
+            }
+        });
+        NOTButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(NOTButton.getBackground()!=Color.white){
+                    NOTButton.setBackground(Color.white);
+                    NOTButton.setOpaque(true);}
+                else{
+                    NOTButton.setBackground(null);
+                }
+            }
+        });
+        CUSTOMButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(CUSTOMButton.getBackground()!=Color.white){
+                    CUSTOMButton.setBackground(Color.white);
+                    CUSTOMButton.setOpaque(true);}
+                else{
+                    CUSTOMButton.setBackground(null);
+                }
             }
         });
     }
