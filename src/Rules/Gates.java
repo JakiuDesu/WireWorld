@@ -40,7 +40,7 @@ public class Gates {
         return temp;
     }
 
-    public void fileToTable() {
+    public void fileToTable(Board b) {
         for(int i=0; i<l; i++) {
             switch (dane[i][0]) {
                 case "Diode":
@@ -50,13 +50,13 @@ public class Gates {
                         for (int k = parsedk; k <= parsedk + 14; k++) {
                             try {
                                 if ((j == parsedj - 1 || j == parsedj + 1) && (k == parsedk + 6 || k == parsedk + 7)) {
-                                    Board.setPixel(j, k, 3);
+                                    b.setPixel(j, k, 3);
                                 } else if (j == parsedj && (k != parsedk + 6 && k != parsedk + 7)) {
-                                    Board.setPixel(j, k, 3);
+                                    b.setPixel(j, k, 3);
                                 } else if (j == parsedj && k == parsedk + 6 && dane[i][3].equals("Normal")) {
-                                    Board.setPixel(j, k, 3);
+                                    b.setPixel(j, k, 3);
                                 } else if (j == parsedj && k == parsedk + 7 && dane[i][3].equals("Reversed")) {
-                                    Board.setPixel(j, k, 3);
+                                    b.setPixel(j, k, 3);
                                 }
                             } catch (IndexOutOfBoundsException e) {
                                 System.out.println(j + " " + k + " są poza zakresem");
@@ -65,10 +65,10 @@ public class Gates {
                     }
                     break;
                 case "ElectronHead":
-                    Board.setPixel(Integer.parseInt(dane[i][2]), Integer.parseInt(dane[i][1]), 1);
+                    b.setPixel(Integer.parseInt(dane[i][2]), Integer.parseInt(dane[i][1]), 1);
                     break;
                 case "ElectronTail":
-                    Board.setPixel(Integer.parseInt(dane[i][2]), Integer.parseInt(dane[i][1]), 2);
+                    b.setPixel(Integer.parseInt(dane[i][2]), Integer.parseInt(dane[i][1]), 2);
                     break;
             }
         }
