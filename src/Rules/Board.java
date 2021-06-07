@@ -2,14 +2,12 @@ package Rules;
 
 import Cell.Pixel;
 
-import java.io.FileNotFoundException;
-
 public class Board {
 
     private Pixel[][] tab;
     private Pixel[][] history;
 
-    public Board(int x, int y, String path) throws FileNotFoundException {
+    public Board(int x, int y, Gates g) {
         tab = new Pixel[y][x];
         history = new Pixel[y][x];
         for(int i = 0; i < y; i++) {
@@ -18,7 +16,6 @@ public class Board {
                 history[i][j] = new Pixel(0);
             }
         }
-        Gates g = new Gates(path);
         g.fileToTable(this);
     }
 
