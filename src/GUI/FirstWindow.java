@@ -27,6 +27,11 @@ public class FirstWindow {
             public void actionPerformed(ActionEvent e) {
                 if(DIODYButton.getBackground()!=Color.white){
                     DIODYButton.setBackground(Color.white);
+                    BRAMKAXORButton.setBackground(null);
+                    ANDButton.setBackground(null);
+                    ORButton.setBackground(null);
+                    NOTButton.setBackground(null);
+                    CUSTOMButton.setBackground(null);
                     DIODYButton.setOpaque(true);
                     gate = 1;
                 }
@@ -42,7 +47,12 @@ public class FirstWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(BRAMKAXORButton.getBackground()!=Color.white) {
+                    DIODYButton.setBackground(null);
                     BRAMKAXORButton.setBackground(Color.white);
+                    ANDButton.setBackground(null);
+                    ORButton.setBackground(null);
+                    NOTButton.setBackground(null);
+                    CUSTOMButton.setBackground(null);
                     BRAMKAXORButton.setOpaque(true);
                     gate = 2;
                 }
@@ -65,7 +75,6 @@ public class FirstWindow {
                 frame2.setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
                 frame2.setPreferredSize(new Dimension(1024,576));
                 frame2.pack();
-                //frame2.add(new Animation());
                 frame2.setVisible(true);
 
             }
@@ -74,7 +83,12 @@ public class FirstWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(ANDButton.getBackground()!=Color.white){
+                    DIODYButton.setBackground(null);
+                    BRAMKAXORButton.setBackground(null);
                     ANDButton.setBackground(Color.white);
+                    ORButton.setBackground(null);
+                    NOTButton.setBackground(null);
+                    CUSTOMButton.setBackground(null);
                     ANDButton.setOpaque(true);
                     gate = 3;
                 }
@@ -88,7 +102,12 @@ public class FirstWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(ORButton.getBackground()!=Color.white){
+                    DIODYButton.setBackground(null);
+                    BRAMKAXORButton.setBackground(null);
+                    ANDButton.setBackground(null);
                     ORButton.setBackground(Color.white);
+                    NOTButton.setBackground(null);
+                    CUSTOMButton.setBackground(null);
                     ORButton.setOpaque(true);
                     gate = 4;
                 }
@@ -102,7 +121,12 @@ public class FirstWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(NOTButton.getBackground()!=Color.white){
+                    DIODYButton.setBackground(null);
+                    BRAMKAXORButton.setBackground(null);
+                    ANDButton.setBackground(null);
+                    ORButton.setBackground(null);
                     NOTButton.setBackground(Color.white);
+                    CUSTOMButton.setBackground(null);
                     NOTButton.setOpaque(true);
                     gate = 5;
                 }
@@ -116,6 +140,11 @@ public class FirstWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(CUSTOMButton.getBackground()!=Color.white){
+                    DIODYButton.setBackground(null);
+                    BRAMKAXORButton.setBackground(null);
+                    ANDButton.setBackground(null);
+                    ORButton.setBackground(null);
+                    NOTButton.setBackground(null);
                     CUSTOMButton.setBackground(Color.white);
                     CUSTOMButton.setOpaque(true);
                     gate = 6;

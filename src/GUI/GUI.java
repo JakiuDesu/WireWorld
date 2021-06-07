@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GUI {
-    public static final void main(String[] args){
+    public static final void Graphic(){
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

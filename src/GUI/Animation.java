@@ -16,18 +16,42 @@ import java.util.List;
 
 public class Animation extends JPanel {
 
-    private List<Point> fillCells;
+    private List<Point> fillCables;
+    private List<Point> fillVoids;
+    private List<Point> fillHeads;
+    private List<Point> fillTails;
 
-    public Animation(int gate) {
-        fillCells = new ArrayList<>(400);
-        for(int i = 0; i<20; i++){
-            fillCell(10,i);
+    public Animation(int iteration) {
+        fillCables = new ArrayList<>(400);
+        fillVoids = new ArrayList<>(400);
+        fillHeads = new ArrayList<>(400);
+        fillTails = new ArrayList<>(400);
+
+        if(iteration ==2) {
+            for (int i = 0; i < 20; i++) {
+                fillCable(6, i);
+            }
         }
-        for(int i = 0; i<20; i++){
-            fillCell(7,i);
+        if (iteration ==3) {
+            for (int i = 0; i < 20; i++) {
+                fillVoid(7, i);
+                fillCable(6, i);
+            }
         }
-        for(int i = 0; i<20; i++){
-            fillCell(13,i);
+        if (iteration ==4) {
+            for (int i = 0; i < 20; i++) {
+                fillVoid(7, i);
+                fillCable(6, i);
+                fillHead(8,i);
+            }
+        }
+        if (iteration ==5) {
+            for (int i = 0; i < 20; i++) {
+                fillVoid(7, i);
+                fillCable(6, i);
+                fillHead(8,i);
+                fillTail(9,i);
+            }
         }
     }
 
@@ -38,10 +62,28 @@ public class Animation extends JPanel {
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Point fillCell : fillCells) {
-            int cellX = 10 + (fillCell.x * 19);
-            int cellY = 10 + (fillCell.y * 19);
-            g.setColor(Color.RED);
+        for (Point fillCable : fillCables) {
+            int cellX = 10 + (fillCable.x * 19);
+            int cellY = 10 + (fillCable.y * 19);
+            g.setColor(Color.yellow);
+            g.fillRect(cellX, cellY, 20, 20);
+        }
+        for (Point fillVoid : fillVoids) {
+            int cellX = 10 + (fillVoid.x * 19);
+            int cellY = 10 + (fillVoid.y * 19);
+            g.setColor(Color.black);
+            g.fillRect(cellX, cellY, 20, 20);
+        }
+        for (Point fillHead : fillHeads) {
+            int cellX = 10 + (fillHead.x * 19);
+            int cellY = 10 + (fillHead.y * 19);
+            g.setColor(Color.blue);
+            g.fillRect(cellX, cellY, 20, 20);
+        }
+        for (Point fillTail : fillTails) {
+            int cellX = 10 + (fillTail.x * 19);
+            int cellY = 10 + (fillTail.y * 19);
+            g.setColor(Color.red);
             g.fillRect(cellX, cellY, 20, 20);
         }
 
@@ -62,8 +104,20 @@ public class Animation extends JPanel {
         }
         g2d.dispose();
     }
-    public void fillCell(int x, int y) {
-        fillCells.add(new Point(x, y));
+    public void fillCable(int x, int y) {
+        fillCables.add(new Point(x, y));
+        repaint();
+    }
+    public void fillVoid(int x, int y) {
+        fillVoids.add(new Point(x, y));
+        repaint();
+    }
+    public void fillHead(int x, int y) {
+        fillHeads.add(new Point(x, y));
+        repaint();
+    }
+    public void fillTail(int x, int y) {
+        fillTails.add(new Point(x, y));
         repaint();
     }
 
