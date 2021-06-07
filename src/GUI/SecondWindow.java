@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import Rules.Gates;
-import Rules.Diode;
+import Input.Gates;
+import Input.DIODE;
 
 public class SecondWindow {
     private JButton ZAPISZButton;
@@ -18,15 +18,12 @@ public class SecondWindow {
     private JLabel numerIteracji;
     private JPanel Animate;
     private int count = 1;
-    public int gateNum;
 
 
-    public SecondWindow(String iterNum, int gateNum) {
+    public SecondWindow(String iterNum, Gates bramka) {
         int iter = Integer.parseInt(iterNum);
 
-        Gates nazwaDiody = new Diode();
-
-        Logic logika = new Logic(nazwaDiody,iter);
+        Logic logika = new Logic(bramka ,iter);
 
         Animate.add(new Animation(logika.getIter(count-1)));
 

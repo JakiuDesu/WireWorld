@@ -1,11 +1,12 @@
 package GUI;
 
-import Cell.Pixel;
-import Rules.Gates;
+import Input.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 
 public class FirstWindow {
     private JButton DIODYButton;
@@ -17,7 +18,7 @@ public class FirstWindow {
     private JButton ORButton;
     private JButton NOTButton;
     private JButton CUSTOMButton;
-    public int gate = 0;
+    private Gates bramka;
 
 
     public FirstWindow() {
@@ -33,11 +34,11 @@ public class FirstWindow {
                     NOTButton.setBackground(null);
                     CUSTOMButton.setBackground(null);
                     DIODYButton.setOpaque(true);
-                    gate = 1;
+                    bramka = new DIODE();
                 }
                 else{
                     DIODYButton.setBackground(null);
-                    gate = 0;
+                    bramka = null;
                 }
             }
         });
@@ -54,11 +55,11 @@ public class FirstWindow {
                     NOTButton.setBackground(null);
                     CUSTOMButton.setBackground(null);
                     BRAMKAXORButton.setOpaque(true);
-                    gate = 2;
+                    bramka = new XOR();
                 }
                 else{
                     BRAMKAXORButton.setBackground(null);
-                    gate = 0;
+                    bramka = null;
                 }
             }
         });
@@ -69,7 +70,7 @@ public class FirstWindow {
 
                 String iterNum = textField1.getText();
 
-                SecondWindow window2 = new SecondWindow(iterNum, gate);
+                SecondWindow window2 = new SecondWindow(iterNum, bramka);
                 JFrame frame2 = new JFrame("Animacja");
                 frame2.setContentPane(window2.getSecondWindowRoot());
                 frame2.setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
@@ -90,11 +91,11 @@ public class FirstWindow {
                     NOTButton.setBackground(null);
                     CUSTOMButton.setBackground(null);
                     ANDButton.setOpaque(true);
-                    gate = 3;
+                    bramka = new AND();
                 }
                 else{
                     ANDButton.setBackground(null);
-                    gate = 0;
+                    bramka = null;
                 }
             }
         });
@@ -109,11 +110,11 @@ public class FirstWindow {
                     NOTButton.setBackground(null);
                     CUSTOMButton.setBackground(null);
                     ORButton.setOpaque(true);
-                    gate = 4;
+                    bramka = new OR();
                 }
                 else{
                     ORButton.setBackground(null);
-                    gate = 0;
+                    bramka = null;
                 }
             }
         });
@@ -128,11 +129,11 @@ public class FirstWindow {
                     NOTButton.setBackground(Color.white);
                     CUSTOMButton.setBackground(null);
                     NOTButton.setOpaque(true);
-                    gate = 5;
+                    bramka = new NOT();
                 }
                 else{
                     NOTButton.setBackground(null);
-                    gate = 0;
+                    bramka = null;
                 }
             }
         });
@@ -147,11 +148,15 @@ public class FirstWindow {
                     NOTButton.setBackground(null);
                     CUSTOMButton.setBackground(Color.white);
                     CUSTOMButton.setOpaque(true);
-                    gate = 6;
+                    try {
+                        bramka = new CUSTOM("C:\\Users\\jakub\\Desktop\\Studia\\JiMP - 2\\input.txt");
+                    } catch (FileNotFoundException fileNotFoundException) {
+                        fileNotFoundException.printStackTrace();
+                    }
                 }
                 else{
                     CUSTOMButton.setBackground(null);
-                    gate = 0;
+                    bramka = null;
                 }
             }
         });

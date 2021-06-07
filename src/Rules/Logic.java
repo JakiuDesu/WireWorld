@@ -1,6 +1,7 @@
 package Rules;
 
 import Cell.Pixel;
+import Input.Gates;
 
 public class Logic {
     private Pixel[][][] history;
@@ -24,12 +25,12 @@ public class Logic {
             System.out.println();
         }
         System.out.println();
-        for(int k = 0; k < iter; k++) {
+        for(int k = 1; k < iter + 1; k++) {
             b.update();
-            for(int i = 0; i < history[k+1].length; i++) {
-                for(int j = 0; j < history[k+1][i].length; j++) {
-                    history[k+1][i][j].setStan(b.getPixel(i,j).getStan());
-                    System.out.print(history[k+1][i][j].getStan());
+            for(int i = 0; i < history[k].length; i++) {
+                for(int j = 0; j < history[k][i].length; j++) {
+                    history[k][i][j].setStan(b.getPixel(i,j).getStan());
+                    System.out.print(history[k][i][j].getStan());
                 }
                 System.out.println();
             }

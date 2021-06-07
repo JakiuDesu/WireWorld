@@ -1,4 +1,6 @@
-package Rules;
+package Input;
+
+import Rules.Board;
 
 public abstract class Gates {
 
