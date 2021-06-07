@@ -19,14 +19,18 @@ public class SecondWindow {
 
     public SecondWindow(String iterNum, int gateNum) {
         int iter = Integer.parseInt(iterNum);
-        Animate.add(new Animation(gateNum));
+        Animate.add(new Animation(count));
 
         NASTĘPNAButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 count++;
-                if( count <= iter)
+                if( count <= iter){
                     numerIteracji.setText(String.valueOf(count));
+                    Animate.removeAll();
+                    Animate.add(new Animation(count));
+                    Animate.revalidate();
+                    }
                 else
                     count = iter;
             }
@@ -35,8 +39,12 @@ public class SecondWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 count--;
-                if( count >= 1)
+                if( count >= 1){
                     numerIteracji.setText(String.valueOf(count));
+                    Animate.removeAll();
+                    Animate.add(new Animation(count));
+                    Animate.revalidate();
+                }
                 else
                     count = 1;
             }
