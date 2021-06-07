@@ -1,10 +1,14 @@
 package GUI;
 
 
+import Rules.Logic;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Rules.Gates;
+import Rules.Diode;
 
 public class SecondWindow {
     private JButton ZAPISZButton;
@@ -19,7 +23,12 @@ public class SecondWindow {
 
     public SecondWindow(String iterNum, int gateNum) {
         int iter = Integer.parseInt(iterNum);
-        Animate.add(new Animation(count));
+
+        Gates nazwaDiody = new Diode();
+
+        Logic logika = new Logic(nazwaDiody,iter);
+
+        Animate.add(new Animation(logika.getIter(count-1)));
 
         NASTĘPNAButton.addActionListener(new ActionListener() {
             @Override
@@ -28,7 +37,7 @@ public class SecondWindow {
                 if( count <= iter){
                     numerIteracji.setText(String.valueOf(count));
                     Animate.removeAll();
-                    Animate.add(new Animation(count));
+                    Animate.add(new Animation(logika.getIter(count-1)));
                     Animate.revalidate();
                     }
                 else
@@ -42,7 +51,7 @@ public class SecondWindow {
                 if( count >= 1){
                     numerIteracji.setText(String.valueOf(count));
                     Animate.removeAll();
-                    Animate.add(new Animation(count));
+                    Animate.add(new Animation(logika.getIter(count-1)));
                     Animate.revalidate();
                 }
                 else

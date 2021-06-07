@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-
+import Rules.Logic;
 
 
 
@@ -21,36 +21,26 @@ public class Animation extends JPanel {
     private List<Point> fillHeads;
     private List<Point> fillTails;
 
-    public Animation(int iteration) {
+    public Animation(Pixel[][] iteracja) {
         fillCables = new ArrayList<>(400);
         fillVoids = new ArrayList<>(400);
         fillHeads = new ArrayList<>(400);
         fillTails = new ArrayList<>(400);
 
-        if(iteration ==2) {
-            for (int i = 0; i < 20; i++) {
-                fillCable(6, i);
-            }
-        }
-        if (iteration ==3) {
-            for (int i = 0; i < 20; i++) {
-                fillVoid(7, i);
-                fillCable(6, i);
-            }
-        }
-        if (iteration ==4) {
-            for (int i = 0; i < 20; i++) {
-                fillVoid(7, i);
-                fillCable(6, i);
-                fillHead(8,i);
-            }
-        }
-        if (iteration ==5) {
-            for (int i = 0; i < 20; i++) {
-                fillVoid(7, i);
-                fillCable(6, i);
-                fillHead(8,i);
-                fillTail(9,i);
+        for(int i=0;i<20;i++){
+            for(int j=0;j<20;j++){
+                if(iteracja[i][j].getStan()==0){
+                    fillVoid(j,i);
+                }
+                if(iteracja[i][j].getStan()==1){
+                    fillHead(j,i);
+                }
+                if(iteracja[i][j].getStan()==2){
+                    fillTail(j,i);
+                }
+                if(iteracja[i][j].getStan()==3){
+                    fillCable(j,i);
+                }
             }
         }
     }
