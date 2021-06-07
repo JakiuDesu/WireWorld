@@ -1,6 +1,7 @@
 package Rules;
 
 import Cell.Pixel;
+import Input.Gates;
 
 public class Board {
 

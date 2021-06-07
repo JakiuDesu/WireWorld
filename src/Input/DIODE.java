@@ -1,8 +1,10 @@
-package Rules;
+package Input;
 
-public class Diode extends Gates {
+import Rules.Board;
 
-    public Diode() {
+public class DIODE extends Gates {
+
+    public DIODE() {
         super();
     }
 

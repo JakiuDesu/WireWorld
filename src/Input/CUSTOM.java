@@ -1,13 +1,15 @@
-package Rules;
+package Input;
+
+import Rules.Board;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Custom extends Gates {
+public class CUSTOM extends Gates {
     private int l = 0;
     private String[][] dane = new String[4][4];
-    public Custom(String path) throws FileNotFoundException {
+    public CUSTOM(String path) throws FileNotFoundException {
 
         Scanner s = new Scanner(new File(path));
         while(s.hasNext()) {
