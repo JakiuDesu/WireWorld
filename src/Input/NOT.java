@@ -39,4 +39,38 @@ public class NOT extends Gates{
         b.setPixel(9, 4, 1);
         b.setPixel(10, 5, 2);
     }
+    @Override
+    public void fileToTable(Board b, int x , int y) {
+        for(int i=5; i<8; i++) {
+            b.setPixel(x, y+i, 3);
+        }
+        b.setPixel(x+1, y+4, 3);
+        b.setPixel(x+1, y+8, 3);
+        for(int i=0; i<4; i++) {
+            b.setPixel(x+2, y+i, 3);
+        }
+        for(int i=7; i<10; i++) {
+            b.setPixel(x+2, y+i, 3);
+        }
+        for(int i=12; i<15; i++) {
+            b.setPixel(x+2, y+i, 3);
+        }
+        b.setPixel(x+3, y+5, 3);
+        b.setPixel(x+3, y+8, 3);
+        b.setPixel(x+3, y+11, 3);
+        b.setPixel(x+4, y+4, 3);
+        b.setPixel(x+4, y+6, 3);
+        b.setPixel(x+4, y+7, 3);
+        b.setPixel(x+4, y+9, 3);
+        b.setPixel(x+4, y+10, 3);
+        b.setPixel(x+5, y+5, 3);
+/*
+        b.setPixel(x+2, y+1, 2);
+        b.setPixel(x+2, y+2, 1);
+        b.setPixel(x, y+5, 2);
+        b.setPixel(x, y+6, 1);
+        b.setPixel(x+4, y+4, 1);
+        b.setPixel(x+5, y+5, 2);
+*/
+    }
 }
