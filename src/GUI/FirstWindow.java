@@ -149,9 +149,9 @@ public class FirstWindow {
                     CUSTOMButton.setBackground(Color.white);
                     CUSTOMButton.setOpaque(true);
                     try {
-                        bramka = new CUSTOM("C:\\Users\\jakub\\Desktop\\Studia\\JiMP - 2\\input.txt");
+                        bramka = new CUSTOM("src/input/custom.txt");
                     } catch (FileNotFoundException fileNotFoundException) {
-                        fileNotFoundException.printStackTrace();
+                        System.out.println("Brak pliku");
                     }
                 }
                 else{

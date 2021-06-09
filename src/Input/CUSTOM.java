@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class CUSTOM extends Gates {
     private int l = 0;
     private String[][] dane = new String[4][4];
+    private Gates[] g;
+
     public CUSTOM(String path) throws FileNotFoundException {
 
         Scanner s = new Scanner(new File(path));
@@ -28,6 +30,39 @@ public class CUSTOM extends Gates {
                 }
             }
         }
+        g = new Gates[l];
+        for(int i=0; i<l; i++) {
+            switch (dane[i][0]){
+                case "Diode":
+                    if(dane[i][3].equals("Normal")) {
+                        g[i] = new DIODE();
+                    } else {
+                        g[i] = new DIODEREV();
+                    }
+                    break;
+                case "ElectronHead":
+                    g[i] = new HEAD();
+                    break;
+                case "ElectronTail":
+                    g[i] = new TAIL();
+                    break;
+                case "Conductor":
+                    g[i] = new CONDUCTOR();
+                    break;
+                case "AND":
+                    g[i] = new AND();
+                    break;
+                case "OR":
+                    g[i] = new OR();
+                    break;
+                case "NOT":
+                    g[i] = new NOT();
+                    break;
+                case "XOR":
+                    g[i] = new XOR();
+                    break;
+            }
+        }
     }
 
     private String[][] resize(String[][] tab) {
@@ -42,36 +77,32 @@ public class CUSTOM extends Gates {
 
     @Override
     public void fileToTable(Board b) {
-        for(int i=0; i<l; i++) {
-            switch (dane[i][0]) {
-                case "Diode":
-                    int parsedj = Integer.parseInt(dane[i][2]);
-                    int parsedk = Integer.parseInt(dane[i][1]);
-                    for (int j = parsedj - 1; j <= parsedj + 1; j++) {
-                        for (int k = parsedk; k <= parsedk + 14; k++) {
-                            try {
-                                if ((j == parsedj - 1 || j == parsedj + 1) && (k == parsedk + 6 || k == parsedk + 7)) {
-                                    b.setPixel(j, k, 3);
-                                } else if (j == parsedj && (k != parsedk + 6 && k != parsedk + 7)) {
-                                    b.setPixel(j, k, 3);
-                                } else if (j == parsedj && k == parsedk + 6 && dane[i][3].equals("Normal")) {
-                                    b.setPixel(j, k, 3);
-                                } else if (j == parsedj && k == parsedk + 7 && dane[i][3].equals("Reversed")) {
-                                    b.setPixel(j, k, 3);
-                                }
-                            } catch (IndexOutOfBoundsException e) {
-                                System.out.println(j + " " + k + " są poza zakresem");
-                            }
-                        }
-                    }
-                    break;
-                case "ElectronHead":
-                    b.setPixel(Integer.parseInt(dane[i][2]), Integer.parseInt(dane[i][1]), 1);
-                    break;
-                case "ElectronTail":
-                    b.setPixel(Integer.parseInt(dane[i][2]), Integer.parseInt(dane[i][1]), 2);
-                    break;
+        int x, y, len = g.length;
+        for(int i=0; i<len; i++) {
+            x = Integer.parseInt(dane[i][2]);
+            y = Integer.parseInt(dane[i][1]);
+            if((dane[i][0].equals("ElectronHead") || dane[i][0].equals("ElectronTail")) && b.getPixel(x, y).getStan() == 0) {
+                Gates[] temp = new Gates[g.length + 1];
+                for(int j=0; j<g.length; j++) {
+                    temp[j] = g[j];
+                }
+                temp[g.length] = new CONDUCTOR();
+                g = temp;
+                if (l == dane.length) {
+                    dane = resize(dane);
+                }
+                dane[l++] = new String[]{"Conductor",dane[i][1], dane[i][2], dane[i][3]};
             }
+            g[i].fileToTable(b, x, y);
         }
+    }
+
+    @Override
+    public void fileToTable(Board b, int x, int y) {
+        //NEVER USED
+    }
+
+    public String[][] getDane() {
+        return dane;
     }
 }
