@@ -31,7 +31,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
       </vspacer>
-      <component id="5fe00" class="javax.swing.JButton" binding="DIODYButton" default-binding="true">
+      <component id="5fe00" class="javax.swing.JButton" binding="DIODAButton">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
@@ -46,10 +46,10 @@
           <foreground color="-12828863"/>
           <hideActionText value="false"/>
           <selected value="true"/>
-          <text value="DIODY"/>
+          <text value="DIODA"/>
         </properties>
       </component>
-      <component id="a6c21" class="javax.swing.JButton" binding="BRAMKAXORButton" default-binding="true">
+      <component id="a6c21" class="javax.swing.JButton" binding="XORButton">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
@@ -60,7 +60,7 @@
           <enabled value="true"/>
           <foreground color="-12828863"/>
           <hideActionText value="false"/>
-          <text value="BRAMKA XOR"/>
+          <text value="XOR"/>
         </properties>
         <clientProperties>
           <hideActionText class="java.lang.Boolean" value="false"/>

@@ -105,4 +105,5 @@ public class CUSTOM extends Gates {
     public String[][] getDane() {
         return dane;
     }
+    public int getL() {return l;}
 }

@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
 public class FirstWindow {
-    private JButton DIODYButton;
-    private JButton BRAMKAXORButton;
+    private JButton DIODAButton;
+    private JButton XORButton;
     private JTextField textField1;
     private JButton gENEButton;
     private JPanel FirstWindowRoot;
@@ -23,42 +23,42 @@ public class FirstWindow {
 
     public FirstWindow() {
 
-        DIODYButton.addActionListener(new ActionListener() {
+        DIODAButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(DIODYButton.getBackground()!=Color.white){
-                    DIODYButton.setBackground(Color.white);
-                    BRAMKAXORButton.setBackground(null);
+                if(DIODAButton.getBackground()!=Color.white){
+                    DIODAButton.setBackground(Color.white);
+                    XORButton.setBackground(null);
                     ANDButton.setBackground(null);
                     ORButton.setBackground(null);
                     NOTButton.setBackground(null);
                     CUSTOMButton.setBackground(null);
-                    DIODYButton.setOpaque(true);
+                    DIODAButton.setOpaque(true);
                     bramka = new DIODE();
                 }
                 else{
-                    DIODYButton.setBackground(null);
+                    DIODAButton.setBackground(null);
                     bramka = null;
                 }
             }
         });
 
 
-        BRAMKAXORButton.addActionListener(new ActionListener() {
+        XORButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(BRAMKAXORButton.getBackground()!=Color.white) {
-                    DIODYButton.setBackground(null);
-                    BRAMKAXORButton.setBackground(Color.white);
+                if(XORButton.getBackground()!=Color.white) {
+                    DIODAButton.setBackground(null);
+                    XORButton.setBackground(Color.white);
                     ANDButton.setBackground(null);
                     ORButton.setBackground(null);
                     NOTButton.setBackground(null);
                     CUSTOMButton.setBackground(null);
-                    BRAMKAXORButton.setOpaque(true);
+                    XORButton.setOpaque(true);
                     bramka = new XOR();
                 }
                 else{
-                    BRAMKAXORButton.setBackground(null);
+                    XORButton.setBackground(null);
                     bramka = null;
                 }
             }
@@ -84,8 +84,8 @@ public class FirstWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(ANDButton.getBackground()!=Color.white){
-                    DIODYButton.setBackground(null);
-                    BRAMKAXORButton.setBackground(null);
+                    DIODAButton.setBackground(null);
+                    XORButton.setBackground(null);
                     ANDButton.setBackground(Color.white);
                     ORButton.setBackground(null);
                     NOTButton.setBackground(null);
@@ -103,8 +103,8 @@ public class FirstWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(ORButton.getBackground()!=Color.white){
-                    DIODYButton.setBackground(null);
-                    BRAMKAXORButton.setBackground(null);
+                    DIODAButton.setBackground(null);
+                    XORButton.setBackground(null);
                     ANDButton.setBackground(null);
                     ORButton.setBackground(Color.white);
                     NOTButton.setBackground(null);
@@ -122,8 +122,8 @@ public class FirstWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(NOTButton.getBackground()!=Color.white){
-                    DIODYButton.setBackground(null);
-                    BRAMKAXORButton.setBackground(null);
+                    DIODAButton.setBackground(null);
+                    XORButton.setBackground(null);
                     ANDButton.setBackground(null);
                     ORButton.setBackground(null);
                     NOTButton.setBackground(Color.white);
@@ -141,8 +141,8 @@ public class FirstWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(CUSTOMButton.getBackground()!=Color.white){
-                    DIODYButton.setBackground(null);
-                    BRAMKAXORButton.setBackground(null);
+                    DIODAButton.setBackground(null);
+                    XORButton.setBackground(null);
                     ANDButton.setBackground(null);
                     ORButton.setBackground(null);
                     NOTButton.setBackground(null);

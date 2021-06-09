@@ -74,6 +74,16 @@ public class SaveIter {
                 }
             }
             if (bramka instanceof CUSTOM) {
+                String[][] dane = ((CUSTOM) bramka).getDane();
+                for(int k=0; k<((CUSTOM) bramka).getL(); k++) {
+                    if(!dane[k][0].equals("ElectronHead") && !dane[k][0].equals("ElectronTail")) {
+                        if(dane[k][0].equals("Diode")) {
+                            myWriter.println(dane[k][0] + ": " + dane[k][1] + ", " + dane[k][2] + ", " + dane[k][3]);
+                        } else {
+                            myWriter.println(dane[k][0] + ": " + dane[k][1] + ", " + dane[k][2]);
+                        }
+                    }
+                }
                 for (int i = 0; i < 20; i++) {
                     for (int j = 0; j < 20; j++) {
                         if (iteracja[i][j].getStan() == 1) {
@@ -81,9 +91,6 @@ public class SaveIter {
                         }
                         if (iteracja[i][j].getStan() == 2) {
                             myWriter.println("ElectronTail: " + j + ", " + i);
-                        }
-                        if (iteracja[i][j].getStan() == 3) {
-                            myWriter.println("Conductor: " + j + ", " + i);
                         }
                     }
                 }
