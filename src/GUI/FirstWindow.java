@@ -19,6 +19,7 @@ public class FirstWindow {
     private JButton NOTButton;
     private JButton CUSTOMButton;
     private Gates bramka;
+    int gateNum;
 
 
     public FirstWindow() {
@@ -35,6 +36,7 @@ public class FirstWindow {
                     CUSTOMButton.setBackground(null);
                     DIODYButton.setOpaque(true);
                     bramka = new DIODE();
+                    gateNum = 1;
                 }
                 else{
                     DIODYButton.setBackground(null);
@@ -56,6 +58,7 @@ public class FirstWindow {
                     CUSTOMButton.setBackground(null);
                     BRAMKAXORButton.setOpaque(true);
                     bramka = new XOR();
+                    gateNum = 2;
                 }
                 else{
                     BRAMKAXORButton.setBackground(null);
@@ -70,7 +73,7 @@ public class FirstWindow {
 
                 String iterNum = textField1.getText();
 
-                SecondWindow window2 = new SecondWindow(iterNum, bramka);
+                SecondWindow window2 = new SecondWindow(iterNum, bramka, gateNum);
                 JFrame frame2 = new JFrame("Animacja");
                 frame2.setContentPane(window2.getSecondWindowRoot());
                 frame2.setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
@@ -92,6 +95,7 @@ public class FirstWindow {
                     CUSTOMButton.setBackground(null);
                     ANDButton.setOpaque(true);
                     bramka = new AND();
+                    gateNum = 3;
                 }
                 else{
                     ANDButton.setBackground(null);
@@ -111,6 +115,7 @@ public class FirstWindow {
                     CUSTOMButton.setBackground(null);
                     ORButton.setOpaque(true);
                     bramka = new OR();
+                    gateNum = 4;
                 }
                 else{
                     ORButton.setBackground(null);
@@ -130,6 +135,7 @@ public class FirstWindow {
                     CUSTOMButton.setBackground(null);
                     NOTButton.setOpaque(true);
                     bramka = new NOT();
+                    gateNum = 5;
                 }
                 else{
                     NOTButton.setBackground(null);
@@ -148,6 +154,7 @@ public class FirstWindow {
                     NOTButton.setBackground(null);
                     CUSTOMButton.setBackground(Color.white);
                     CUSTOMButton.setOpaque(true);
+                    gateNum = 6;
                     try {
                         bramka = new CUSTOM("C:\\Users\\jakub\\Desktop\\Studia\\JiMP - 2\\input.txt");
                     } catch (FileNotFoundException fileNotFoundException) {

@@ -1,6 +1,6 @@
 package GUI;
 
-
+import Input.SaveIter;
 import Rules.Logic;
 
 import javax.swing.*;
@@ -20,10 +20,13 @@ public class SecondWindow {
     private int count = 1;
 
 
-    public SecondWindow(String iterNum, Gates bramka) {
+    public SecondWindow(String iterNum, Gates bramka, int bramkaNum) {
         int iter = Integer.parseInt(iterNum);
 
         Logic logika = new Logic(bramka ,iter);
+
+
+
 
         Animate.add(new Animation(logika.getIter(count-1)));
 
@@ -53,6 +56,12 @@ public class SecondWindow {
                 }
                 else
                     count = 1;
+            }
+        });
+        ZAPISZButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new SaveIter(logika.getIter(count-1),bramkaNum,count);
             }
         });
     }
