@@ -5,12 +5,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Rectangle2D;
 import javax.swing.JPanel;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-import Rules.Logic;
+
 
 
 
@@ -80,8 +79,6 @@ public class Animation extends JPanel {
         g.setColor(Color.BLACK);
         Graphics2D g2d = (Graphics2D) g.create();
         int size = Math.min(getWidth() - 4, getHeight() - 4) / 20;
-        int width = getWidth() - (size * 2);
-        int height = getHeight() - (size * 2);
 
         int y = (getHeight() - (size * 20)) / 2;
         for (int horz = 0; horz < 20; horz++) {

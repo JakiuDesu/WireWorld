@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GUI {
-    public static final void Graphic(){
+    public static void Graphic(){
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -20,8 +20,6 @@ public class GUI {
 
             }
         });
-    }
-    public void setMap(){
     }
 
 

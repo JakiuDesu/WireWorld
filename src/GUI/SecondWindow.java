@@ -2,13 +2,11 @@ package GUI;
 
 import Input.SaveIter;
 import Rules.Logic;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Input.Gates;
-import Input.DIODE;
 
 public class SecondWindow {
     private JButton ZAPISZButton;
@@ -20,7 +18,7 @@ public class SecondWindow {
     private int count = 1;
 
 
-    public SecondWindow(String iterNum, Gates bramka, int bramkaNum) {
+    public SecondWindow(String iterNum, Gates bramka) {
         int iter = Integer.parseInt(iterNum);
 
         Logic logika = new Logic(bramka ,iter);
