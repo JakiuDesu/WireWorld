@@ -61,7 +61,7 @@ public class SecondWindow {
         ZAPISZButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new SaveIter(logika.getIter(count-1),bramkaNum,count);
+                new SaveIter(logika.getIter(count-1),bramka,count);
             }
         });
     }
