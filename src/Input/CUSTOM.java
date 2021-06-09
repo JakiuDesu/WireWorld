@@ -91,7 +91,7 @@ public class CUSTOM extends Gates {
                 if (l == dane.length) {
                     dane = resize(dane);
                 }
-                dane[l++] = new String[]{"Conductor",dane[i][1], dane[i][2], dane[i][3]};
+                dane[l++] = new String[]{"Conductor",dane[i][1], dane[i][2], };
             }
             g[i].fileToTable(b, x, y);
         }
